@@ -12,7 +12,6 @@
 
 @interface SignPostWrapper : NSObject
 
-void           xamarin_os_signpost_interval_begin(os_log_t logger, os_signpost_id_t signpost_id, const char *message);
-void           xamarin_os_signpost_interval_end(os_log_t logger, os_signpost_id_t signpost_id);
+void signpost_wrapper_log(os_log_t log, os_signpost_id_t signpost_id, os_signpost_type_t type, const char *name, const char *format, ...);
 
 @end
