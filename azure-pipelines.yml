@@ -21,5 +21,13 @@ steps:
 - task: CopyFiles@2
   inputs:
     contents: '**/*.dylib'
-    targetFolder: '$(build.artifactStagingDirectory)'
+    targetFolder: '$(build.SourcesDirectory)/dotnet/Xamarin.Mac.SignPostWrapper'
+
+- task: XamariniOS@2
+  inputs:
+    solutionFile: '**/Xamarin.Mac.SignPostWrapper.csproj'
+    configuration: '$(buildConfiguration)'
+    packageApp: true
+    buildForSimulator: false
+
 - task: PublishBuildArtifacts@1
