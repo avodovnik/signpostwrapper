@@ -1,4 +1,5 @@
 # Xcode
+
 # Build, test, and archive an Xcode workspace on macOS.
 # Add steps that install certificates, test, sign, and distribute an app, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/xcode
@@ -23,11 +24,21 @@ steps:
     contents: '**/*.dylib'
     targetFolder: '$(build.SourcesDirectory)/dotnet/Xamarin.Mac.SignPostWrapper'
 
-- task: XamariniOS@2
+- task: MSBuild@1
   inputs:
-    solutionFile: '**/Xamarin.Mac.SignPostWrapper.csproj'
-    configuration: '$(buildConfiguration)'
-    packageApp: true
-    buildForSimulator: false
+    solution: '**/*.sln'
+    configuration: '$(BuildConfiguration)'
+    clean: true
+
+- task: NuGetCommand@2
+  inputs:
+    command: 'pack'
+    packagesToPack: '**/*.csproj'
+    versioningScheme: 'off'
+
+- task: CopyFiles@2
+  inputs:
+    contents: '**/*.nupkg'
+    targetFolder: '$(build.ArtifactsDirectory}'
 
 - task: PublishBuildArtifacts@1
