@@ -36,6 +36,7 @@ steps:
   inputs:
     command: 'pack'
     packagesToPack: '**/*.csproj'
+    configuration: 'Release'
     versioningScheme: 'off'
 
 - task: CopyFiles@2
