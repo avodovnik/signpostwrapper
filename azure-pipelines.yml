@@ -23,7 +23,9 @@ steps:
   inputs:
     contents: '**/*.dylib'
     targetFolder: '$(build.SourcesDirectory)/dotnet/Xamarin.Mac.SignPostWrapper/'
-
+    OverWrite: true
+    flattenFolders: true
+    
 - task: MSBuild@1
   inputs:
     solution: '**/*.sln'
