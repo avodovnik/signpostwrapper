@@ -17,3 +17,9 @@ steps:
     sdk: 'macosx10.15'
     configuration: 'Release clean build'
     xcWorkspacePath: 'SignPostWrapper.xcodeproj'
+
+- task: CopyFiles@2
+  inputs:
+    contents: '**/*.dylib'
+    targetFolder: '$(build.artifactStagingDirectory)'
+- task: PublishBuildArtifacts@1
