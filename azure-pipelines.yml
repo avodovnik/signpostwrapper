@@ -22,13 +22,13 @@ steps:
 - task: CopyFiles@2
   inputs:
     contents: '**/*.dylib'
-    targetFolder: '$(build.SourcesDirectory)/dotnet/Xamarin.Mac.SignPostWrapper'
+    targetFolder: '$(build.SourcesDirectory)/dotnet/Xamarin.Mac.SignPostWrapper/'
 
 - task: MSBuild@1
   inputs:
     solution: '**/*.sln'
     configuration: 'Release'
-    clean: true
+    clean: false
 
 - task: NuGetCommand@2
   inputs:
