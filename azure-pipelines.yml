@@ -16,7 +16,7 @@ steps:
     scheme: ''
     sdk: 'macosx10.15'
     configuration: 'Release clean build'
-    xcWorkspacePath: 'SignPostWrapper.xcodeproj'
+    xcWorkspacePath: 'native/SignPostWrapper.xcodeproj'
 
 - task: CopyFiles@2
   inputs:
