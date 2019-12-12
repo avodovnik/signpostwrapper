@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>$id$</id>
-    <version>0.1.0</version>
+    <version>0.1.5</version>
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
@@ -11,9 +11,13 @@
     <copyright>Copyright 2019</copyright>
     <tags>Xamarin Mac SignPost</tags>
     <dependencies>
-      <group targetFramework="Xamarin.Mac2.0">
-        <dependency id="System.Core" version="*"/>
-      </group>
+      <group targetFramework="Xamarin.Mac2.0"/>
     </dependencies>
+    <contentFiles>
+      <files include="**/*.dylib" buildAction="None" copyToOutput="true" flatten="true" />
+    </contentFiles>
   </metadata>
+  <files> 
+    <file src="**/*.dylib" target="Content" />
+  </files> 
 </package>
