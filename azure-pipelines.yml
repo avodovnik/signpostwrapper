@@ -1,5 +1,6 @@
 # Xcode
 
+
 # Build, test, and archive an Xcode workspace on macOS.
 # Add steps that install certificates, test, sign, and distribute an app, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/xcode
@@ -46,4 +47,16 @@ steps:
     contents: '**/*.nupkg'
     targetFolder: '$(build.ArtifactsDirectory}'
 
+- task: NuGetAuthenticate@0
+  inputs:
+    nuGetServiceConnections: 'VSECFeed'
+    
+- task: NuGetCommand@2
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    nuGetFeedType: 'external'
+    publishFeedCredentials: 'VSECFeed'
+
 - task: PublishBuildArtifacts@1
+
