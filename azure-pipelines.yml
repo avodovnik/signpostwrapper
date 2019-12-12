@@ -28,7 +28,7 @@ steps:
     
 - task: MSBuild@1
   inputs:
-    solution: '**/*.sln'
+    solution: '**/Xamarin.Mac.SignPostWrapper.csproj'
     configuration: 'Release'
     clean: false
 
