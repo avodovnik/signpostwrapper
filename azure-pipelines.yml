@@ -13,11 +13,12 @@ pool:
 steps:
 - task: Xcode@5
   inputs:
-    actions: 'build'
-    scheme: ''
+    actions: 'clean build'
+    configuration: 'Release'
     sdk: 'macosx10.15'
-    configuration: 'Release clean build'
     xcWorkspacePath: 'native/SignPostWrapper.xcodeproj'
+    packageApp: false
+    destinationPlatformOption: 'macOS'
 
 - task: CopyFiles@2
   inputs:
