@@ -28,14 +28,14 @@ steps:
     
 - task: MSBuild@1
   inputs:
-    solution: '**/Xamarin.Mac.SignPostWrapper.csproj'
+    solution: '$(build.SourcesDirectory)/dotnet/Xamarin.Mac.SignPostWrapper/Xamarin.Mac.SignPostWrapper.csproj'
     configuration: 'Release'
     clean: false
 
 - task: NuGetCommand@2
   inputs:
     command: 'pack'
-    packagesToPack: '**/*.csproj'
+    packagesToPack: '$(build.SourcesDirectory)/dotnet/Xamarin.Mac.SignPostWrapper/Xamarin.Mac.SignPostWrapper.csproj'
     configuration: 'Release'
     versioningScheme: 'off'
 
