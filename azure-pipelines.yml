@@ -52,7 +52,7 @@ steps:
 
 - task: NuGetAuthenticate@0
   inputs:
-    nuGetServiceConnections: 'NuGetOrg, VSECFeed'
+    nuGetServiceConnections: 'VSECFeed'
     
 - task: NuGetCommand@2
   inputs:
