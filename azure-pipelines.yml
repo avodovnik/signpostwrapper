@@ -10,6 +10,7 @@ trigger:
 
 pool:
   vmImage: 'macos-latest'
+name: '$(BuildDefinitionName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)'
 
 steps:
 
