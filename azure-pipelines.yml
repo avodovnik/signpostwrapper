@@ -61,11 +61,5 @@ steps:
     nuGetFeedType: 'external'
     publishFeedCredentials: 'VSECFeed'
 
-- task: NuGetCommand@2
-  inputs:
-    command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
-    nuGetFeedType: 'external'
-    publishFeedCredentials: 'NuGetOrg'
-
-
+- task: UseDotNet@2 
+- script: dotnet nuget push --api-key $(NuGet_APIKEY) --source https://api.nuget.org/v3/index.json *.nupkg
