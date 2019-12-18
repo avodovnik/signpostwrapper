@@ -40,7 +40,7 @@ steps:
     command: 'pack'
     packagesToPack: '$(build.SourcesDirectory)/dotnet/Xamarin.Mac.SignPostWrapper/Xamarin.Mac.SignPostWrapper.csproj'
     configuration: 'Release'
-    versioningScheme: 'off'
+    versioningScheme: 'byBuildNumber'
 
 - task: CopyFiles@2
   inputs:
