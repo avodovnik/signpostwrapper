@@ -62,4 +62,4 @@ steps:
     publishFeedCredentials: 'VSECFeed'
 
 - task: UseDotNet@2 
-- script: dotnet nuget push --api-key $(NuGet_APIKEY) --source https://api.nuget.org/v3/index.json *.nupkg
+- script: dotnet nuget push --api-key $(NuGet_APIKEY) --source https://api.nuget.org/v3/index.json $(Build.ArtifactStagingDirectory)/**/*.nupkg
