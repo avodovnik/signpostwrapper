@@ -48,9 +48,11 @@ steps:
     contents: '**/*.nupkg'
     targetFolder: '$(build.ArtifactsDirectory}'
 
+- task: PublishBuildArtifacts@1
+
 - task: NuGetAuthenticate@0
   inputs:
-    nuGetServiceConnections: 'VSECFeed'
+    nuGetServiceConnections: 'NuGetOrg, VSECFeed'
     
 - task: NuGetCommand@2
   inputs:
@@ -66,5 +68,4 @@ steps:
     nuGetFeedType: 'external'
     publishFeedCredentials: 'NuGetOrg'
 
-- task: PublishBuildArtifacts@1
 
