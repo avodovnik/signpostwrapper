@@ -16,6 +16,8 @@
     <contentFiles>
       <files include="**/*.dylib" buildAction="None" copyToOutput="true" flatten="true" />
     </contentFiles>
+    <license type="expression">MIT</license>
+     <projectUrl>https://github.com/avodovnik/signpostwrapper</projectUrl>
   </metadata>
   <files> 
     <file src="**/*.dylib" target="Content" />
