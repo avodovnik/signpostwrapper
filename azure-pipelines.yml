@@ -25,7 +25,7 @@ steps:
     OverWrite: true
     flattenFolders: true
 
-- task: DownloadSecureFile@1]
+- task: DownloadSecureFile@1
   name: signpostwrapper
   inputs:
     secureFile: 'signpostwrapper.snk'
