@@ -4,6 +4,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <SignAssembly>true</SignAssembly>
+    <DelaySign>true</DelaySign>
+    <AssemblyOriginatorKeyFile>signpost.pub.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
 </Project>
