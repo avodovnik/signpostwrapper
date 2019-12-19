@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-using ObjCRuntime;
 
 namespace Xamarin.Mac.SignPostWrapper
 {
@@ -18,7 +17,7 @@ namespace Xamarin.Mac.SignPostWrapper
         [DllImport("__Internal", EntryPoint = "os_log_create")]
         private static extern IntPtr os_log_create(string subsystem, string category);
 
-        [DllImport(Constants.libSystemLibrary)]
+        [DllImport("/usr/lib/libSystem.dylib")]
         private static extern IntPtr os_signpost_id_make_with_pointer(IntPtr log,
             IntPtr ptr,
             params string[] additional);
