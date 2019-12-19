@@ -37,7 +37,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'sn -R  $(build.SourcesDirectory)/dotnet/Xamarin.Mac.SignPostWrapper/bin/Release/netstandard2.0/Xamarin.Mac.SignPostWrapper.dll signpostwrapper.snk'
+    script: 'sn -R  $(build.SourcesDirectory)/dotnet/Xamarin.Mac.SignPostWrapper/bin/Release/netstandard2.0/Xamarin.Mac.SignPostWrapper.dll $(build.SourcesDirectory)/dotnet/Xamarin.Mac.SignPostWrapper/signpostwrapper.snk'
 
 - task: DotNetCoreCLI@2
   inputs:
