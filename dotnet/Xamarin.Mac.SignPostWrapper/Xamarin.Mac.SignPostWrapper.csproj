@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <SignAssembly>true</SignAssembly>
-    <DelaySign>true</DelaySign>
-    <AssemblyOriginatorKeyFile>signpost.pub.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
-
+    <PropertyGroup>
+        <PackageId>Xamarin.Mac.SignPostWrapper</PackageId>
+        <Version>0.1.6</Version>
+        <Authors>avodovnik</Authors>
+        <Company>Vodovnik.com</Company>
+        <description>Binds and wraps the SignPost API in Mac OS to be accessible from Xamarin.</description>
+        <copyright>Copyright 2019</copyright>
+        <tags>Xamarin Mac SignPost</tags>
+    </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <SignAssembly>true</SignAssembly>
+        <DelaySign>true</DelaySign>
+        <AssemblyOriginatorKeyFile>signpost.pub.snk</AssemblyOriginatorKeyFile>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Remove="libSignPostWrapper.dylib" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="libSignPostWrapper.dylib">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
 </Project>
