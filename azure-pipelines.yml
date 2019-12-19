@@ -25,7 +25,8 @@ steps:
     OverWrite: true
     flattenFolders: true
 
-- task: DownloadSecureFile@1
+- task: DownloadSecureFile@1]
+  name: signpostwrapper
   inputs:
     secureFile: 'signpostwrapper.snk'
 
@@ -37,7 +38,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'sn -R  $(build.SourcesDirectory)/dotnet/Xamarin.Mac.SignPostWrapper/bin/Release/netstandard2.0/Xamarin.Mac.SignPostWrapper.dll $(build.SourcesDirectory)/dotnet/Xamarin.Mac.SignPostWrapper/signpostwrapper.snk'
+    script: 'sn -R  $(build.SourcesDirectory)/dotnet/Xamarin.Mac.SignPostWrapper/bin/Release/netstandard2.0/Xamarin.Mac.SignPostWrapper.dll $(signpostwrapper.secureFilePath)'
 
 - task: DotNetCoreCLI@2
   inputs:
