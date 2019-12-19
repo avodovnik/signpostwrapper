@@ -36,10 +36,10 @@ steps:
     configuration: 'Release'
     clean: false
 
-- task: NuGetCommand@2
+- task: DotNetCoreCLI@2
   inputs:
     command: 'pack'
-    packagesToPack: '$(build.SourcesDirectory)/dotnet/Xamarin.Mac.SignPostWrapper/Xamarin.Mac.SignPostWrapper.csproj'
+    packagesToPack: '**/Xamarin.Mac.SignPostWrapper.csproj'
     configuration: 'Release'
     versioningScheme: 'byBuildNumber'
 
