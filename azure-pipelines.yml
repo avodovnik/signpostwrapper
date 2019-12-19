@@ -25,12 +25,33 @@ steps:
     OverWrite: true
     flattenFolders: true
 
+- task: DownloadSecureFile@1
+  inputs:
+    secureFile: 'signpostwrapper.snk'
+
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: '**/Xamarin.Mac.SignPostWrapper.csproj'
+    arguments: 'Configuration=Release'
+
+- task: CmdLine@2
+  inputs:
+    script: 'sn -R  $(build.SourcesDirectory)/dotnet/Xamarin.Mac.SignPostWrapper/bin/Release/netstandard2.0/Xamarin.Mac.SignPostWrapper.dll signpostwrapper.snk'
+
 - task: DotNetCoreCLI@2
   inputs:
     command: 'pack'
     packagesToPack: '**/Xamarin.Mac.SignPostWrapper.csproj'
     configuration: 'Release'
+    nobuild: true
     versioningScheme: 'byBuildNumber'
+
+- task: DeleteFiles@1
+  inputs:
+    SourceFolder: $(build.SourcesDirectory)
+    Contents: '**/*.snk'
 
 - task: CopyFiles@2
   inputs:
