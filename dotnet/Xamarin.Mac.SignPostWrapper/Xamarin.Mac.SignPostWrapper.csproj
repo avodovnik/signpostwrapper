@@ -16,7 +16,7 @@
         <AssemblyOriginatorKeyFile>signpost.pub.snk</AssemblyOriginatorKeyFile>
     </PropertyGroup>
     <ItemGroup>
-      <None Update="libSignPostWrapper.dylib">
+      <None Include="libSignPostWrapper.dylib">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         <PackageCopyToOutput>true</PackageCopyToOutput>
       </None>
