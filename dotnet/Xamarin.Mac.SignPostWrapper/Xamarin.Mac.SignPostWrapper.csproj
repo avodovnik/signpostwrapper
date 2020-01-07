@@ -18,7 +18,8 @@
     <ItemGroup>
       <None Include="libSignPostWrapper.dylib">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        <PackageCopyToOutput>true</PackageCopyToOutput>
+        <PackagePath>lib\netstandard2.0</PackagePath>
+        <Pack>true</Pack>
       </None>
     </ItemGroup>
 </Project>
